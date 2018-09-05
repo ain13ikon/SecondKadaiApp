@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var nameField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -18,6 +20,17 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let resultNameController: ResultName = segue.destination as! ResultName
+        
+        resultNameController.name = nameField.text!
+    }
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue){
+        
     }
 
 
